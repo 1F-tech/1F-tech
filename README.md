@@ -1,12 +1,27 @@
-- 👋 Hi, I’m @1F-tech
-- 👀 I’m interested in job
-- 🌱 I’m currently learning c#
-- 💞️ I’m looking to collaborate on developing 
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+import random
 
-<!---
-1F-tech/1F-tech is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+def guess_the_number():
+    number_to_guess = random.randint(1, 100)
+    attempts = 0
+    guessed_correctly = False
+
+    print("Welcome to the Number Guessing Game!")
+    print("I have selected a number between 1 and 100. Can you guess what it is?")
+
+    while not guessed_correctly:
+        try:
+            guess = int(input("Enter your guess: "))
+            attempts += 1
+
+            if guess < number_to_guess:
+                print("Too low! Try again.")
+            elif guess > number_to_guess:
+                print("Too high! Try again.")
+            else:
+                guessed_correctly = True
+                print(f"Congratulations! You've guessed the number in {attempts} attempts.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+if __name__ == "__main__":
+    guess_the_number()
